@@ -22,6 +22,8 @@ deliberately differs.
 
 | Area | Where |
 |---|---|
+| **Frontmatter — what goes at the top of a document** | [frontmatter](https://github.com/Micheal-Friday/Contribution/blob/main/docs/frontmatter.md) |
+| **Templates — copy one to start a document** | [templates/](https://github.com/Micheal-Friday/Contribution/tree/main/templates) |
 | Branch names | [branch-naming](https://github.com/Micheal-Friday/Contribution/blob/main/git/branch-naming.md) |
 | Commit messages | [commit-messages](https://github.com/Micheal-Friday/Contribution/blob/main/git/commit-messages.md) |
 | Issues | [issues](https://github.com/Micheal-Friday/Contribution/blob/main/github/issues.md) |
