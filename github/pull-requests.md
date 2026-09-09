@@ -143,6 +143,18 @@ The second status comment on that issue states the consequence plainly, and this
 
 Naming the consequence is not optional. **A PR that uses `Refs` must say who closes the issue and when.** Otherwise the issue stays open indefinitely and the tracker stops meaning anything.
 
+### The keyword fires from anywhere in the body
+
+**A closing keyword closes the issue wherever it appears — including in a sentence arguing that it should not.** The forge scans the whole body, not a trailer block at the end, and it does not read the surrounding words.
+
+This repository did it to itself. PR #3 used `Refs #2` deliberately, because an open decision still needed rehoming, and its body said so:
+
+> **Close #2 manually once the supersession question has its own issue.**
+
+That sentence closed #2 at merge time. The instruction not to auto-close *was* the auto-close, and the deliberate act the rule above asks for never happened.
+
+**Write the issue number without a closing verb in front of it** — *"#2 should be closed by hand once …"* — or name the action without naming the issue in the same clause. The rule is cheap to follow and invisible when broken, which is the combination that makes it worth writing down.
+
 ### Multiple issues
 
 One `Refs`/`Closes` line per issue. Do not use `Closes` on an issue whose scope you do not own — closing somebody else's issue from your PR destroys their open-decisions list.
