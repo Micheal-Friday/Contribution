@@ -8,6 +8,15 @@ aliases: [architecture decision records, ADR conventions, decision records]
 
 # Architecture decisions
 
+> **At a glance**
+> **Frontmatter** `type: decision` · `status: proposed` · `date:` (**when decided**) · `decision-makers:`
+> **Name** `NNNN-kebab-title.md` — e.g. `0011-bundled-mcp-server.md`. Four digits, sequential, **never reused**
+> **Template** [`templates/adr.md`](../templates/adr.md) · **Format** [MADR 4.0.0](https://adr.github.io/madr/)
+> **Bar** Warranted when the choice is **expensive to reverse and confusing to rediscover**.
+> **Rule** **`proposed` is not a soft `accepted`.** Nothing may be built on a proposed record.
+
+---
+
 An **architecture decision record** (ADR) answers one question and nothing else: *what did we choose, and why?*
 
 It exists because the reasoning behind a choice decays faster than the choice does. Six months later the constraint that forced the decision is invisible — the code, the schema, or the package layout looks arbitrary, and the next person either works around it or reverses it without knowing what it was defending. **An ADR is a message to whoever hits that constraint next.**
@@ -71,7 +80,7 @@ Two rules about content, both about staying in lane:
 - **ADRs cite the strategy, product, and research documents; they do not restate them.** The documents explain; the ADRs commit. A restatement is a second copy that drifts, and then two documents disagree about what the project believes.
 - **Every material claim that came from evidence names its source.** A driver sourced from a benchmark or a standard is checkable; a driver sourced from nowhere is a preference wearing a citation's clothes.
 
-Frontmatter carries at least `status` and `date`, plus `supersedes:` / `superseded-by:` where they apply. The `date` is **the date the decision was made**, not the date the file was written — records written retroactively, at the point a project establishes its decision folder, should say when the thinking actually happened.
+Frontmatter carries `type: decision`, `status`, `date` and `decision-makers`, plus `supersedes:` / `superseded-by:` where they apply — full list in [Frontmatter](frontmatter.md). The `date` is **the date the decision was made**, not the date the file was written — records written retroactively, at the point a project establishes its decision folder, should say when the thinking actually happened.
 
 ---
 
@@ -87,6 +96,40 @@ Frontmatter carries at least `status` and `date`, plus `supersedes:` / `supersed
 | **A withdrawn or abandoned record still burns its number** | A gap in the sequence reads as a decision that was withdrawn — recoverable information. A reused number reads as correct and is wrong |
 | **The branch carries the number too** — `adr/<NNNN>-<title>`, and `<type>/<NNNN>-<short-title>` for a branch implementing exactly one record | Decision records have no automatic backlink from a version-control host, the way issues do from commit trailers. The number in the branch name is what makes everything that touched a decision findable from the decision. See [Branch naming](../git/branch-naming.md) |
 | **The number never changes**, including when the record moves to an archive | Moving a file is a location change, not an identity change |
+
+### The file name is a slug, not the title
+
+The record's H1 is an **imperative sentence** naming the choice. The file name is the **shortest phrase that identifies it**. These are not the same length, and trying to make them match produces the failure in the last row below.
+
+| Record title — the H1 | File name |
+|---|---|
+| `0006 — Generalize on mechanism, packs for domain knowledge` | `0006-generalize-on-mechanism.md` |
+| `0009 — Decline the plugin move and withdraw the prototypes` | `0009-layout-resolution.md` |
+
+The slug drops the second half of the decision. That is correct: the file name's job is to be **unambiguous in a listing**, and the record's job is to be complete. The number carries the identity, so the words only have to distinguish it from its neighbours.
+
+### Good and bad
+
+Good — the examples are from the source project, with its own names:
+
+| File name | Why it works |
+|---|---|
+| `0006-generalize-on-mechanism.md` | Names what was chosen, not the area it was chosen in. Readable in a folder listing without opening it |
+| `0007-git-versioned-workspace.md` | Three words for a record that decided a workspace, a review queue and a review command. The rest lives inside |
+| `0010-scoped-qualification.md` | Matches its implementation branch `feat/0010-scoped-qualification`, so the record and the work carrying it cannot drift |
+| `0011-bundled-mcp-server.md` | Number agrees with the branch `adr/0011-bundled-mcp-server` and the citation `ADR-0011`. All three greppable together |
+
+Bad:
+
+| File name | Why it fails |
+|---|---|
+| `12-storage-substrate.md` | Not zero-padded. Sorts after `0009` in every listing, and a search for `ADR-0012` does not find it |
+| `0009-repo-and-plugin-layout-decline-plugin-move-and-withdraw-prototypes.md` | 74 characters, and it states the outcome twice. `0009-layout-resolution.md` carries the same information — the record body carries the rest |
+| `0009-storage-substrate.md`, when `0009` already exists | The reuse. `ADR-0009` now means two things, and **every citation written before the reuse is silently wrong** |
+| `0013-database.md` | A topic, not a choice. A folder of nouns cannot be scanned — the reader has to open each one to find what was decided |
+| `ADR-0013-postgres.md` | `ADR-` is the **citation** form, not the file name form. It repeats what the folder says and breaks the `NNNN-` sort shared with every other numbered series |
+| `0014-use-postgres-v2.md` | A version suffix. **Decisions supersede; they are not revised.** This is a new record with `supersedes: ADR-0014` — see §5 |
+| `0015-decided-to-use-postgres.md` | `decided-to` restates what the folder already establishes. Every file in it is a decision |
 
 ---
 
@@ -137,6 +180,7 @@ A worked skeleton. Keep it short — **the shortest record that answers the ques
 
 ```markdown
 ---
+type: decision
 status: proposed
 date: 2026-07-29
 decision-makers: [role or name]
