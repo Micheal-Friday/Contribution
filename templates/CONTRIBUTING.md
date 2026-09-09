@@ -22,21 +22,22 @@ deliberately differs.
 
 | Area | Where |
 |---|---|
-| **Frontmatter — what goes at the top of a document** | [frontmatter](https://github.com/Micheal-Friday/Contribution/blob/main/docs/frontmatter.md) |
-| **Templates — copy one to start a document** | [templates/](https://github.com/Micheal-Friday/Contribution/tree/main/templates) |
-| Branch names | [branch-naming](https://github.com/Micheal-Friday/Contribution/blob/main/git/branch-naming.md) |
-| Commit messages | [commit-messages](https://github.com/Micheal-Friday/Contribution/blob/main/git/commit-messages.md) |
-| Issues | [issues](https://github.com/Micheal-Friday/Contribution/blob/main/github/issues.md) |
-| Pull requests | [pull-requests](https://github.com/Micheal-Friday/Contribution/blob/main/github/pull-requests.md) |
-| Status updates | [issue-updates](https://github.com/Micheal-Friday/Contribution/blob/main/github/issue-updates.md) |
-| Document lifecycle and naming | [document-lifecycle](https://github.com/Micheal-Friday/Contribution/blob/main/docs/document-lifecycle.md) |
-| Decision records | [decisions](https://github.com/Micheal-Friday/Contribution/blob/main/docs/decisions.md) |
-| Reports *(if this project issues them)* | [reports](https://github.com/Micheal-Friday/Contribution/blob/main/docs/reports.md) |
-| Research *(if this project produces benchmarks)* | [research](https://github.com/Micheal-Friday/Contribution/blob/main/docs/research.md) |
+| **Frontmatter — what goes at the top of a document** | [frontmatter](https://github.com/Micheal-Friday/Contribution/blob/<tag>/docs/frontmatter.md) |
+| **Templates — copy one to start a document** | [templates/](https://github.com/Micheal-Friday/Contribution/tree/<tag>/templates) |
+| Branch names | [branch-naming](https://github.com/Micheal-Friday/Contribution/blob/<tag>/git/branch-naming.md) |
+| Commit messages | [commit-messages](https://github.com/Micheal-Friday/Contribution/blob/<tag>/git/commit-messages.md) |
+| Issues | [issues](https://github.com/Micheal-Friday/Contribution/blob/<tag>/github/issues.md) |
+| Pull requests | [pull-requests](https://github.com/Micheal-Friday/Contribution/blob/<tag>/github/pull-requests.md) |
+| Status updates | [issue-updates](https://github.com/Micheal-Friday/Contribution/blob/<tag>/github/issue-updates.md) |
+| Document lifecycle and naming | [document-lifecycle](https://github.com/Micheal-Friday/Contribution/blob/<tag>/docs/document-lifecycle.md) |
+| Decision records | [decisions](https://github.com/Micheal-Friday/Contribution/blob/<tag>/docs/decisions.md) |
+| Reports *(if this project issues them)* | [reports](https://github.com/Micheal-Friday/Contribution/blob/<tag>/docs/reports.md) |
+| Research *(if this project produces benchmarks)* | [research](https://github.com/Micheal-Friday/Contribution/blob/<tag>/docs/research.md) |
 
-**Pinned to:** `main` · *or* `<tag>` — pin only if a convention change would
-disrupt work in flight. Say which, so nobody has to guess whether a rule that
-arrived yesterday applies here.
+**Pinned to:** `<tag>` — the version this project follows. **Replace `<tag>` in
+every link above**, so contributors read exactly the text this project agreed
+to rather than whatever landed in `main` yesterday. Upgrading is then a
+deliberate commit to this file.
 
 ---
 
