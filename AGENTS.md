@@ -8,13 +8,17 @@ Ten guides and eight templates: how work enters a repository. **The rules live h
 
 1. [`README.md`](README.md) — the index: the rule/value split, versioning, pinning.
 2. [`CONTRIBUTING.md`](CONTRIBUTING.md) — this repo's own values and exceptions.
-3. **The one guide the task is about.** Reading all nine to change one is waste.
+3. **The one guide the task is about.** Reading all ten to change one is waste.
 
 Writing a document rather than changing a rule? [`docs/frontmatter.md`](docs/frontmatter.md) → the template it names → done.
 
+Changing a rule? [`docs/decisions/`](docs/decisions/) first — what has already been decided, and what it cost.
+
 ## Where the project is
 
-**Released.** `v1.0.0` tagged, [issue #1](https://github.com/Micheal-Friday/Contribution/issues/1) closed on all five scope items, nothing open. Three projects consume it — taking nine, seven and four guides.
+**Released, nothing open.** `v1.1.1` is current — the extraction ([#1](https://github.com/Micheal-Friday/Contribution/issues/1)), the frontmatter reference ([#2](https://github.com/Micheal-Friday/Contribution/issues/2)) and the corrections that followed it ([#4](https://github.com/Micheal-Friday/Contribution/issues/4)) are all closed.
+
+**Three projects consume it and all three are still pinned to `v1.0.0`**, so nothing added since is live anywhere. They took nine, seven and four of the guides that existed then; there are ten now.
 
 The issue list and releases are the authority on state, not this file.
 
@@ -32,7 +36,7 @@ The issue list and releases are the authority on state, not this file.
 - **`main` is read by nobody.** Consumers pin to a tag, so a change is live nowhere until each upgrades its own stub.
 - **Enforcement never travels.** Hooks and CI are per-repo. Linking here is not compliance.
 - **No document here carries `version:`.** Nine did; they were dropped so the git tag versions the set. Do not reintroduce one.
-- **Only `templates/CONTRIBUTING.md` is meant to be copied.** Guides are linked, never vendored.
+- **Templates are copied out; guides are only ever linked.** All eight templates exist to be filled in inside another project. No guide is ever vendored — that is the whole point of the split.
 - **The examples are real**, drawn from the project these were extracted from. Keep them that way.
 
 ## Keeping this file current
