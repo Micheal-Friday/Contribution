@@ -269,7 +269,7 @@ Before requesting review, read your own PR as the reviewer. On GitHub, not in yo
 
 | Check | Why |
 |---|---|
-| Every new document has frontmatter with at least `type`, `status`, `updated` | [document lifecycle](../docs/document-lifecycle.md) |
+| Every new document in the docs tree has frontmatter with at least `type`, `status`, and **its own date field** — which is not `updated:` on the append-only types. Root files such as `README.md` are not documents in this sense | [frontmatter](../docs/frontmatter.md) |
 | Every `References` section and link list uses **relative markdown links with real paths**, and every path resolves | GitHub renders `[[wikilink]]` as literal text and does not link it. Relative markdown links work on GitHub *and* in an editor. Never emit `[[foo]](path)` — it is malformed in both |
 | Wikilinks appear only inline in prose, where they degrade to readable text | inline they cost a reader nothing; in a list of links they are the whole point of the list, and they fail **silently** |
 | Dates are ISO-8601 everywhere, including inside prose; relative dates converted | "last week" is unreadable in six months |
