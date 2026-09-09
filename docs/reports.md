@@ -1,7 +1,7 @@
 ---
 type: process
 status: living
-updated: 2026-07-29
+updated: 2026-09-09
 tags: [contribution, reports, naming, process]
 aliases: [report conventions, writing reports]
 ---
@@ -114,7 +114,7 @@ Required columns: **file name · report ID · date · subject · area of context
 | **A report is never edited after it is issued** | It describes a state at a date. Editing it destroys the record of what was believed when, which is most of why reports are kept |
 | **Corrections are issued as a new report** that names what it corrects | Same discipline as superseding an ADR |
 | `status: complete` on issue. No draft state | A draft report has not been sent, so it is not yet a report |
-| Reports are **not** living documents | The document lifecycle table in `CONTRIBUTING.md` records this explicitly |
+| Reports are **not** living documents | The type table in [document lifecycle](document-lifecycle.md) §2 records this explicitly |
 
 ## 7. Before sending
 
