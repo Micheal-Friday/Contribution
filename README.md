@@ -6,6 +6,10 @@ How work enters a repository: what a branch is called, what a commit says, what 
 
 ---
 
+## Start here
+
+**[Frontmatter](docs/frontmatter.md) — what goes at the top of a document, by type.** Every field, every type, in one table. The guides below carry the reasoning; this carries the answer.
+
 ## The guides
 
 | Guide | Governs | The rule that carries it |
@@ -15,6 +19,7 @@ How work enters a repository: what a branch is called, what a commit says, what 
 | [Writing issues](github/issues.md) | Context → **Problem** bullets → numbered **Scope of work** | **Numbered scope items are row keys** for every status update written against the issue. Never renumber, never delete |
 | [Pull requests](github/pull-requests.md) | Title, summary, and a **"how to review this"** section | A change request is a request for a *specific kind of attention*, and a reviewer given no route reviews what is easy to review |
 | [Status updates](github/issue-updates.md) | Comments reporting against the issue's own structure | **Report findings that contradict the issue's premise, and defects in your own prior work.** Separate *decisions someone must make* from *work still to do* |
+| [Frontmatter](docs/frontmatter.md) | Every field, for every document type | **The date field is named for what the date means.** `updated:`, `date:` and `researched:` answer three different questions |
 | [Document lifecycle](docs/document-lifecycle.md) | Naming, frontmatter, status vocabularies, versioning | **Only shipped artifacts get a version number.** Documents use status and supersession |
 | [Decision records](docs/decisions.md) | What needs one, and how they supersede | **`proposed` is not a soft `accepted`.** A recommendation is not a decision |
 | [Reports](docs/reports.md) | Documents that leave the repository | **No repo-relative links in a body** — they resolve to nothing once the file is sent |
@@ -22,7 +27,18 @@ How work enters a repository: what a branch is called, what a commit says, what 
 
 ## Templates
 
-[`CONTRIBUTING.md`](templates/CONTRIBUTING.md) — the adoption stub · [issue](templates/issue.md) · [pull request](templates/pull-request.md) · [decision record](templates/adr.md)
+**Every template carries the correct frontmatter**, so copying one is the fastest answer to *what block goes at the top?*
+
+| Writing… | Template |
+|---|---|
+| a strategy, product, architecture or process document | [document](templates/document.md) |
+| a decision | [decision record](templates/adr.md) |
+| a research or benchmark pass | [research](templates/research.md) |
+| a report that leaves the repository | [report](templates/report.md) |
+| a folder registry | [index](templates/index.md) |
+| an issue | [issue](templates/issue.md) |
+| a change request | [pull request](templates/pull-request.md) |
+| adopting these conventions | [`CONTRIBUTING.md`](templates/CONTRIBUTING.md) — the stub |
 
 ---
 
