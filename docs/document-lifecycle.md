@@ -1,7 +1,7 @@
 ---
 type: process
 status: living
-updated: 2026-07-29
+updated: 2026-09-09
 tags: [contribution, docs, lifecycle, naming, frontmatter, process]
 aliases: [document lifecycle, naming conventions, frontmatter, versioning]
 ---
@@ -87,7 +87,7 @@ Retired types are dropped from the table and **left alone in existing documents*
 | Thing | Carries | Why |
 |---|---|---|
 | **The released artifact** — a package, a plugin, a library, whatever this project actually ships | SemVer in its manifest, bumped in the same pull request as the change, with a changelog entry | Consumers depend on it and need a compatibility contract. That is what SemVer *is*: a promise about breakage, made to someone downstream |
-| **Every document** | `status`, `updated`, and supersession | Nobody depends on revision 3 of a strategy document. They depend on the *current* one, and on being able to tell that it is current |
+| **Every document** | `status`, **its own date field**, and supersession | Nobody depends on revision 3 of a strategy document. They depend on the *current* one, and on being able to tell that it is current |
 
 **A version number on a living document is a lie about how it changes.** SemVer claims that a bump means something specific — that MAJOR broke a contract, that MINOR added compatibly. A document has no contract to break, so every bump is a judgement call, which means the numbers stop carrying information almost immediately. Worse, a stale `version: 1.2` on a document edited eleven times since reads as authoritative precision. `updated:` plus the git log tells the truth and costs nothing to maintain.
 
@@ -109,6 +109,8 @@ The procedure is three steps and all three are required:
 | 1 | Write a **new** record | The reasoning that led to the reversal is the valuable part. Editing the old record destroys it |
 | 2 | Set the old record's status to `superseded by ADR-NNNN` | A reader who arrives at the old record via a stale link must be told, in the record itself, that it has been replaced and by what |
 | 3 | Add `supersedes:` to the new record | The link has to be traversable in both directions, or the new record reads as though it appeared from nowhere |
+
+**Step 2 differs by type, because it depends on what the type's status ladder can carry.** A decision's terminal state names its replacement, so the status *is* the pointer. A strategy document ends at a bare `superseded`, and a research pass or report has no superseded state at all — for those, step 2 sets `superseded-by:` instead. It is always exactly one of the two, never both. See [Frontmatter](frontmatter.md) §4.
 
 Superseded documents keep their number when they move to the archive. **The number is the citation** — moving a file is a location change, not an identity change, and a citation that breaks because someone tidied a folder was never a citation.
 
