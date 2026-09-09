@@ -4,7 +4,7 @@ This repository holds the shared conventions, and **follows them**. A convention
 
 Read the guides for the rules — start at [`README.md`](README.md). This file records only what is specific to **this** repository.
 
-**Pinned to:** n/a — this *is* the source. Adopting projects pin to `main` or to a tag.
+**Pinned to:** n/a — this *is* the source. Adopting projects pin to a tag.
 
 ---
 
@@ -33,7 +33,7 @@ Omit the scope when a change spans the repository — a rule change that touches
 
 ### Branch types in use
 
-`docs/` · `fix/` · `chore/`. No numbered record series yet, so no `adr/`.
+`docs/` · `fix/` · `chore/`, plus `adr/<NNNN>` now that a record series exists. **No `adr/` branch has carried a record yet** — ADR-0001 landed on a `fix/` branch alongside the corrections it settles, because the point of that branch was the corrections. A branch implementing one record on its own takes the `adr/` form.
 
 ### Labels
 
@@ -44,7 +44,7 @@ Omit the scope when a change spans the repository — a rule change that touches
 | Question it answers | Where |
 |---|---|
 | who is doing what, and when is it finished | GitHub issues |
-| what was decided, and what it cost | **nowhere yet** — add `docs/decisions/` the first time a convention change has alternatives worth recording |
+| what was decided, and what it cost | [`docs/decisions/`](docs/decisions/), indexed in its own `README.md`. Opened 2026-09-09 with ADR-0001 — the first convention change that had alternatives worth recording |
 | what we want, and in what order | nowhere. There is no backlog; the issue list is short enough to be one |
 
 ---
@@ -75,7 +75,9 @@ It was retired in `docs: refs #1 version the set, not the files`. Nine files car
 
 ## Prior art that is not the model
 
-Conventions here start on **2026-07-29**, which is also this repository's first commit — so unusually, **the whole log complies**. That will not be true of most projects adopting these, which is why the stub has this section.
+Conventions here start on **2026-07-29**; this repository's first commit is **2026-08-11**. So unusually, every commit here was written under the conventions — which is not the same as complying with them. **Four subjects exceed the 72-character limit** in [commit messages](git/commit-messages.md) §4. That is recorded rather than quietly fixed, because the history is not being rewritten and a false compliance claim in this section would be worse than the defect it hides.
+
+Most projects adopting these will have far more prior art that does not comply, which is why the stub has this section.
 
 The guides' worked examples come from the project these were extracted from, and its history predates the rules. Where an example is held up as *bad*, that is why.
 
