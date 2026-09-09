@@ -1,4 +1,5 @@
 ---
+type: decision
 status: proposed
 date: <YYYY-MM-DD>
 decision-makers: [<who decided>]
@@ -8,7 +9,7 @@ tags: [<area>]
 ---
 
 <!--
-  Decision record. Full rules: docs/decisions.md
+  Decision record. Full rules: docs/decisions.md · fields: docs/frontmatter.md
   Filename: NNNN-kebab-title.md — sequential, never reused, including for
   withdrawn records. A citation must not become ambiguous.
 
