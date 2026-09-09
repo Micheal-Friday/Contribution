@@ -1,7 +1,7 @@
 ---
 type: process
 status: living
-updated: 2026-07-29
+updated: 2026-09-09
 tags: [contribution, git, branches, process]
 aliases: [branch naming, branch conventions]
 ---
@@ -10,12 +10,14 @@ aliases: [branch naming, branch conventions]
 
 > **At a glance**
 > **Pattern** `<type>/<short-kebab-description>` — e.g. `docs/frontmatter-reference`
-> **Types** `docs/` `feat/` `fix/` `chore/`, plus `adr/<NNNN>` for a numbered record. Your project sets its own list.
-> **Rule** **A branch name outlives the branch.** It lands in the merge commit and stays in the history permanently.
+> **Types** Seven — `docs/` `feat/` `fix/` `refactor/` `chore/` from the commit vocabulary, plus `adr/<NNNN>` and provisional `rfd/` for record series. Your project sets which series it keeps.
+> **Rule** **Name a branch as though the name is permanent**, because it usually is — a merge commit embeds it in history forever. Under rebase-merge or squash it survives only in the change request, which does not travel to another forge.
 
 ---
 
-Detail behind the one line about branches in the adopting project's own `CONTRIBUTING.md`. The convention exists for one reason: **a branch name outlives the branch.** Merges land as merge commits, so the name is embedded in the permanent history — `Merge pull request #6 from <owner>/skill/inquiry` is in the source project's log forever, and `skill/inquiry` does not say what it did.
+Detail behind the one line about branches in the adopting project's own `CONTRIBUTING.md`. The convention exists for one reason: **a branch name usually outlives the branch.** Where a merge commit is made, the name is embedded in the permanent history — `Merge pull request #6 from <owner>/skill/inquiry` is in the source project's log forever, and `skill/inquiry` does not say what it did.
+
+**Under rebase-merge or squash no merge commit is made, and the name survives only in the change request** — which is forge state, and [does not travel](../README.md). So the name is then exactly as durable as the forge account and no more. **Name it as though permanent either way**, because at branch time you rarely know how it will land, and the cost of a good name is nothing.
 
 ---
 
@@ -54,7 +56,7 @@ The rule is packaging-invariant by construction: it ranges over the commit vocab
 
 ### Current values — as of 2026-07-29, revisable
 
-Seven types. A branch may carry commits of more than one — pick the type matching the *point* of the branch. The first five are the commit vocabulary and are the same in any project; the last two depend on which record series the adopting project keeps, so its own `CONTRIBUTING.md` is what settles them. Worked examples of each are in §7.
+Seven types. A branch may carry commits of more than one — pick the type matching the *point* of the branch. The first five are the commit vocabulary and are the same in any project; the last two depend on which record series the adopting project keeps, so its own `CONTRIBUTING.md` is what settles them. Worked examples are in §7, for every type except `rfd/` — which has none because no series exists to write one from.
 
 | Type | Source | For |
 |---|---|---|
@@ -133,7 +135,7 @@ The table is the rule applied, not a separate list; a situation not in it is dec
 | **Short-lived — days, not weeks** | A branch is an unmerged claim about the repo. The longer it lives, the more of `main` it has not seen |
 | Rebase onto `main` freely **until review starts** | Keeps the diff honest — a stale branch reviews against a repo that no longer exists |
 | **Never rebase after review has started.** Merge `main` in instead | Rebasing rewrites the SHAs the reviewer's comments are anchored to. The comments survive; their context does not |
-| Land via merge commit, not squash | The merge commit subject preserves the branch name, and the individual commits stay individually revertible — see [commit messages](commit-messages.md) §9 on why the docs tree and the prototype deletion were kept apart |
+| Prefer a merge commit, and know what the alternatives cost | A merge commit subject preserves the branch name in history that travels. **Rebase-merge discards it; squash discards it and collapses commits that were split deliberately** — see [commit messages](commit-messages.md) §9 and [pull requests](../github/pull-requests.md) §*Merge policy* on why the docs tree and the prototype deletion were kept apart |
 | **Delete the branch after merge** | The merge commit already records the name. A merged branch still listed in `git branch -a` reads as work in progress |
 | Do not rename a branch with a PR under review | The old URL is in people's tabs and notifications. Fix the PR title instead; the branch name is already fossilised in the eventual merge commit either way |
 
