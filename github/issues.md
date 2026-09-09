@@ -1,7 +1,7 @@
 ---
 type: process
 status: living
-updated: 2026-07-29
+updated: 2026-09-09
 tags: [process, contribution, issues, github]
 aliases: [issue conventions, writing issues, issue anatomy]
 ---
@@ -31,7 +31,7 @@ These rules sit under the adopting project's own `CONTRIBUTING.md`. Where the tw
 | The question | The thing it produces | Lifecycle | Ends by |
 |---|---|---|---|
 | *Who is doing what, and when is it finished?* | a **unit of work** | open → closed | being delivered |
-| *What did we choose, and why?* | a **decision** | `proposed` → `accepted` \| `rejected` → `superseded` | being superseded — never edited, never deleted |
+| *What did we choose, and why?* | a **decision** | `proposed` → `accepted` \| `rejected` → `deprecated` \| `superseded by ADR-NNNN` | being superseded — never edited, never deleted |
 | *What do we want, and in what order?* | a **ranked intention** | a verdict and a priority, re-triaged | being promoted to a unit of work, or re-triaged |
 
 The three are confused constantly because a single piece of thinking usually produces all three, and producing all three is not duplication — it is the point. The tracking issue was one unit of work; it produced ten decision records and a re-triaged backlog of 21 items. Nothing was written twice: the issue tracked the doing, the records recorded the choosing, and the backlog recorded the ordering.
@@ -71,13 +71,14 @@ Changing a venue is a decision, not a preference: it moves a system of record, s
 
 ## Issue anatomy
 
-Three parts, in this order. The tracking issue has all three and nothing else.
+Four parts, in this order, and nothing else.
 
 | Part | Heading | Job |
 |---|---|---|
 | Context | *(none — the opening paragraph)* | what the situation was, what changed, and why it matters **now** |
 | Problem | `Problem` | concrete bullets, each one falsifiable |
 | Scope | `Scope of work` | a numbered list of deliverables that later comments report against |
+| Done when | `Done when` | the completion test somebody **other than the author** can apply — see §*Definition of done* |
 
 ### The context paragraph
 

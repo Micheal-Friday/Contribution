@@ -1,7 +1,7 @@
 ---
 type: process
 status: living
-updated: 2026-07-29
+updated: 2026-09-09
 tags: [process, contribution, issues, status-reporting, honesty]
 aliases: [status updates, issue comments, status comment, reporting against scope]
 ---
@@ -9,7 +9,7 @@ aliases: [status updates, issue comments, status comment, reporting against scop
 # Status updates on issues
 
 > **At a glance**
-> **Shape** Status → problems addressed → findings that change the premise → defects found → **Open decisions** → Still to do
+> **Shape** Status → **Scope of work** table → problems addressed → **Open decisions**, separately from work still to do → limits not reached
 > **Keyed on** the issue's own numbered scope items — see [Writing issues](issues.md).
 > **Rule** **Separate *decisions someone must make* from *work still to do*.** Report findings that contradict the issue's premise, and defects in your own prior work.
 
@@ -55,7 +55,9 @@ Depends on the issue anatomy in [writing issues](issues.md); the adopting projec
 | 1 | Scope | `### Scope of work` — table keyed by the issue's numbers, then per-item detail sections | always |
 | 2 | Problems | `## The problems in this issue, addressed` — two-column table | always |
 | 3 | Open | `## Open — N decisions, not outstanding work` and, separately, work still to do | always, even if empty |
-| 4 | Limits | `## Not reached, recorded rather than hidden` | whenever research or work could not be completed |
+| 4 | Findings | `## Findings that change this issue's premise` | whenever the framing that opened the work turns out to be wrong |
+| 5 | Defects | `## Defects found` — including in your own prior work | whenever any were found |
+| 6 | Limits | `## Not reached, recorded rather than hidden` | whenever research or work could not be completed |
 
 ### 0 — The headline
 

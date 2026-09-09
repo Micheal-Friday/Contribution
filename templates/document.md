@@ -1,6 +1,6 @@
 ---
-type: <strategy | product | architecture | process | index>
-status: <draft | accepted | superseded>   # `living` for process and index
+type: <strategy | product | architecture | process>
+status: <draft | accepted | superseded>   # `living` for process
 updated: <YYYY-MM-DD>
 tags: [<searchable-term>, <searchable-term>]
 aliases: [<what people actually call this>]
@@ -10,10 +10,14 @@ aliases: [<what people actually call this>]
   GENERIC DOCUMENT TEMPLATE — for living documents.
   Full field rules: docs/frontmatter.md
 
-  NOT for these three — they are append-only and have their own templates:
+  NOT for these four — each has its own template:
     a choice + alternatives .......... templates/adr.md
     evidence gathered at a date ...... templates/research.md
     a document that leaves the repo .. templates/report.md
+    a registry of other documents .... templates/index.md
+
+  The first three are append-only: frozen at merge, and corrected by writing
+  a new one rather than by editing.
 
   Name the file lowercase kebab-case: what-it-is.md
   Delete every section you do not fill. An empty heading is a promise broken.

@@ -1,7 +1,7 @@
 ---
 type: process
 status: living
-updated: 2026-07-29
+updated: 2026-09-09
 tags: [contribution, git, commits, conventional-commits, process]
 aliases: [commit messages, commit conventions, conventional commits]
 ---
@@ -10,7 +10,7 @@ aliases: [commit messages, commit conventions, conventional commits]
 
 > **At a glance**
 > **Form** `<type>(<scope>): refs #N <subject>` — e.g. `docs(templates): refs #2 add a report template`
-> **Types** `feat` `fix` `docs` `chore` — the type drives the SemVer bump, and only on the shipped artifact.
+> **Types** `feat` `fix` `docs` `refactor` `chore` — the type drives the SemVer bump, and only on the shipped artifact. `test` `build` `ci` `perf` are held in reserve, unused.
 > **Rule** **The issue reference goes in the subject, not a footer.** A footer is invisible in `git log --oneline`, which is the view people actually scan.
 
 ---
@@ -348,7 +348,7 @@ Do not split past the point where a commit stands on its own. A commit that leav
 
 ## 10. Worked examples
 
-All four are from the source project, abridged, with its own names left in place.
+The three good examples are from the source project, abridged, with its own names left in place. The bad table that follows is constructed, except where a row names a real commit.
 
 ### Good
 
