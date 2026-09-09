@@ -1,7 +1,7 @@
 ---
 type: process
 status: living
-updated: 2026-07-29
+updated: 2026-09-09
 tags: [contribution, research, benchmark, evidence, process]
 aliases: [research conventions, benchmark conventions, research passes]
 ---
