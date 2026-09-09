@@ -1,7 +1,7 @@
 ---
 type: process
 status: living
-updated: 2026-07-29
+updated: 2026-09-09
 tags: [process, contribution, pull-requests, review, github]
 aliases: [PR conventions, pull request template, review norms]
 ---
@@ -9,7 +9,7 @@ aliases: [PR conventions, pull request template, review norms]
 # Pull requests
 
 > **At a glance**
-> **Shape** Summary → **How to review this** → Commits → Not included → Known defects → Review received → Links
+> **Shape** Summary → **How to review this** → Commits → Not included → Known defects → Outward-facing changes → Evidence → Review received → Links
 > **Template** [`templates/pull-request.md`](../templates/pull-request.md)
 > **Linking** `Closes #N` **only** if this merge completes the issue's whole scope, open decisions included. Otherwise `Refs #N`.
 > **Rule** A change request asks for a *specific kind of attention*. **A reviewer given no route reviews what is easy to review.**
@@ -35,6 +35,8 @@ The worked examples come from the source project's `docs/product-definition` bra
 | `Not included` | always | what a reviewer might reasonably expect and will not find |
 | `Known defects shipped knowingly` | when there are any | the defect and where it is tracked |
 | `Outward-facing changes` | always, even if "none" | anything a consumer outside this repo would have to act on — see the tests below |
+| `Evidence` | when the project requires it for the class of artifact touched | evals, benchmarks, a migration dry-run — otherwise "n/a" |
+| `Review received` | always | a second reviewer, or what stood in for one. **Never imply a review that did not happen** |
 | `Links` | always | `Refs #N` or `Closes #N`, plus decision-record status changes |
 
 ### Title

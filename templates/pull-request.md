@@ -51,6 +51,11 @@
 <!-- Anything named from outside, on a resolution path, or drawn from a shared
      budget. Or "none". -->
 
+## Evidence
+
+<!-- Whatever this project's own CONTRIBUTING.md requires for the class of
+     artifact touched — evals, benchmarks, a migration dry-run. Or "n/a". -->
+
 ## Review received
 
 <!-- A second reviewer, or: self-review pass plus a cooling-off period.
