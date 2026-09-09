@@ -8,6 +8,14 @@ aliases: [PR conventions, pull request template, review norms]
 
 # Pull requests
 
+> **At a glance**
+> **Shape** Summary → **How to review this** → Commits → Not included → Known defects → Review received → Links
+> **Template** [`templates/pull-request.md`](../templates/pull-request.md)
+> **Linking** `Closes #N` **only** if this merge completes the issue's whole scope, open decisions included. Otherwise `Refs #N`.
+> **Rule** A change request asks for a *specific kind of attention*. **A reviewer given no route reviews what is easy to review.**
+
+---
+
 A PR is a **request for a specific kind of attention**. A 40-file docs set and a three-line fix are both PRs and share almost nothing about how they should be read — not because their subject matter differs, but because almost none of the risk in the first one is visible in the diff. This document says what a PR must contain, how to tell the reviewer what review means for this change, and when a merge is allowed to close an issue.
 
 These rules sit under the adopting project's own `CONTRIBUTING.md`. Where the two disagree, that file wins and this one is the bug.

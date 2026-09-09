@@ -8,6 +8,13 @@ aliases: [status updates, issue comments, status comment, reporting against scop
 
 # Status updates on issues
 
+> **At a glance**
+> **Shape** Status → problems addressed → findings that change the premise → defects found → **Open decisions** → Still to do
+> **Keyed on** the issue's own numbered scope items — see [Writing issues](issues.md).
+> **Rule** **Separate *decisions someone must make* from *work still to do*.** Report findings that contradict the issue's premise, and defects in your own prior work.
+
+---
+
 A status update is a comment that reports the state of the work **against the issue's own structure** — its numbered scope items, then its stated problems, then what is genuinely open. It is written for the person who picks this up next, which is usually you in three weeks with different assumptions.
 
 This is the least standard of the three contribution documents and has the least prior art anywhere. The convention here is derived from the two status comments on the source project's tracking issue, which were the only worked examples that existed. They are not public, so what they did is reproduced below rather than linked.
