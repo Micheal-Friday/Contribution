@@ -8,6 +8,14 @@ aliases: [research conventions, benchmark conventions, research passes]
 
 # Research
 
+> **At a glance**  — *opt-in; skip this guide unless your project produces benchmarks*
+> **Frontmatter** `type: research` · `status: complete` · `researched:` (**when the evidence was gathered**)
+> **Name** one file per pass, named for the **area** not the trigger — `benchmark-<area>.md`
+> **Template** [`templates/research.md`](../templates/research.md)
+> **Rule** **"Unverified" means *could not be confirmed*, not *false*.** State what the pass could not reach.
+
+---
+
 > **Opt-in.** This document applies only to projects that produce benchmark or survey work — competitive analysis, standards surveys, capability comparisons, anything where a conclusion rests on gathered external evidence. A project that produces no such work does not need these conventions and should not adopt them for completeness. Adopting a convention nobody exercises teaches people that conventions here are decorative.
 
 A **research pass** is one bounded investigation, written down. Its job is to put evidence somewhere a decision can cite it — and, just as importantly, to say what it could not find out.

@@ -8,6 +8,14 @@ aliases: [issue conventions, writing issues, issue anatomy]
 
 # Writing issues
 
+> **At a glance**
+> **Shape** Context → **Problem** (falsifiable bullets) → **Scope of work** (numbered) → **Done when**
+> **Template** [`templates/issue.md`](../templates/issue.md)
+> **Not an issue?** A choice with alternatives is a [decision record](../docs/decisions.md). A ranked intention is a backlog row.
+> **Rule** **Numbered scope items are the row keys** of every status update written against this issue. Never renumber, never delete.
+
+---
+
 An issue is a **unit of work**: something a person will do, with a finish line somebody else can check. This document says when to open one instead of writing a decision record or a backlog row, what goes in it, and how it should be shaped so that the status comments written against it later — see [status updates](issue-updates.md) — have something to report against.
 
 The reference example throughout is the source project's tracking issue, *"Revise the product definition, feature set, and roadmap against a second business unit's operating model"*. It was the largest issue that project ran and the only one with a full reporting cycle. It is not public, so where this document says "the tracking issue" it reproduces the shape rather than pointing at it — the shape is the part that transfers.

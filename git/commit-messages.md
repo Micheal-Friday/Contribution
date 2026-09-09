@@ -8,6 +8,13 @@ aliases: [commit messages, commit conventions, conventional commits]
 
 # Commit messages
 
+> **At a glance**
+> **Form** `<type>(<scope>): refs #N <subject>` — e.g. `docs(templates): refs #2 add a report template`
+> **Types** `feat` `fix` `docs` `chore` — the type drives the SemVer bump, and only on the shipped artifact.
+> **Rule** **The issue reference goes in the subject, not a footer.** A footer is invisible in `git log --oneline`, which is the view people actually scan.
+
+---
+
 Detail behind the one line about commits in the adopting project's own `CONTRIBUTING.md`. A commit message is the only record of a change that travels with the change. PR threads live on a server, issues get closed, and an ADR records a decision rather than a diff — but `git log` is in every clone, offline, forever.
 
 ---

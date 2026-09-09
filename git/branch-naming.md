@@ -8,6 +8,13 @@ aliases: [branch naming, branch conventions]
 
 # Branch naming
 
+> **At a glance**
+> **Pattern** `<type>/<short-kebab-description>` — e.g. `docs/frontmatter-reference`
+> **Types** `docs/` `feat/` `fix/` `chore/`, plus `adr/<NNNN>` for a numbered record. Your project sets its own list.
+> **Rule** **A branch name outlives the branch.** It lands in the merge commit and stays in the history permanently.
+
+---
+
 Detail behind the one line about branches in the adopting project's own `CONTRIBUTING.md`. The convention exists for one reason: **a branch name outlives the branch.** Merges land as merge commits, so the name is embedded in the permanent history — `Merge pull request #6 from <owner>/skill/inquiry` is in the source project's log forever, and `skill/inquiry` does not say what it did.
 
 ---

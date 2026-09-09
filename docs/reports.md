@@ -8,6 +8,15 @@ aliases: [report conventions, writing reports]
 
 # Writing reports
 
+> **At a glance**
+> **Frontmatter** `type: report` · `status: complete` · `date:` (**the date described**) · `report-id:` · `audience:`
+> **Name** `R<NNN>-<subject-slug>-<YYYY-MM-DD>.md` — `R<NNN>` sequential, never reused
+> **Template** [`templates/report.md`](../templates/report.md)
+> **Sections** Header block → Summary → Findings → **The weakest link** → Sources
+> **Rule** **No repo-relative links in the body.** They resolve to nothing once the file is sent.
+
+---
+
 A report is a **document that leaves the repository**. It is stored here, and it is read somewhere else — attached to an email, pasted into a document, forwarded to someone who will never clone this repo and may not have access to it.
 
 That single fact generates every rule below. **A report is not a documentation page.** Documentation assumes its reader is inside the tree; a report must assume its reader has nothing but the file in front of them.
