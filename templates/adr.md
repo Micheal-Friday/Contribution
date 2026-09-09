@@ -56,7 +56,9 @@ tags: [<area>]
 
 ### Confirmation
 
-<!-- How anyone tells later whether this decision was right — the observable
+<!-- Optional — delete it and fold this into More Information if the revisit
+     condition already carries it.
+     How anyone tells later whether this decision was right — the observable
      that would falsify it. A decision with no confirmation test cannot be
      revisited, only re-argued. -->
 

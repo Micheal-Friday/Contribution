@@ -91,10 +91,11 @@ decision-makers: [role or name]
 consulted: []           # asked before — delete the key rather than faking one
 informed: []            # told after
 tags: [storage]
-# supersedes: ADR-0009
-# superseded-by: ADR-0021
+# supersedes: ADR-0009  # on a record that REPLACES an earlier one
 ---
 ```
+
+**A superseded decision carries its pointer in `status`, not in a `superseded-by:` field** — see §4.
 
 ### `research`
 
@@ -139,7 +140,7 @@ tags: [benchmark]
 | `tags` | ○ | ○ | ○ | ○ | ○ | ○ | ○ | ○ |
 | `aliases` | ○ | ○ | ○ | ○ | ○ | ○ | ○ | ○ |
 | `supersedes` | ○ | ○ | ○ | — | — | ○ | ○ | ○ |
-| `superseded-by` | ○ | ○ | ○ | — | — | ○ | ○ | ○ |
+| `superseded-by` | ○ | ○ | ○ | — | — | **—** | ○ | ○ |
 | `decision-makers` | — | — | — | — | — | ● | — | — |
 | `consulted` | — | — | — | — | — | ○ | — | — |
 | `informed` | — | — | — | — | — | ○ | — | — |
@@ -147,11 +148,12 @@ tags: [benchmark]
 | `report-id` | — | — | — | — | — | — | — | ● |
 | **`version`** | — | — | — | — | — | — | — | — |
 
-**Three rows worth reading twice.**
+**Four rows worth reading twice.**
 
 - **`updated` is — on the append-only three.** `decision`, `research` and `report` are frozen at merge. A field promising *last updated* on a document that is never updated invites exactly the edit the rules forbid.
 - **`version` is — everywhere.** Only shipped artifacts get SemVer; documents get status and supersession.
 - **`process` and `index` cannot be superseded**, because neither ladder has a `superseded` state. They are living documents, edited until deleted.
+- **`superseded-by` is — on `decision`**, because a decision's status already names its replacement. **The pointer lives in exactly one place per type**, and which place depends on whether that type's ladder has a state that can carry it — see §4.
 
 ---
 
@@ -173,11 +175,24 @@ Never invent a status value. The vocabulary is fixed by type, because **the end 
 | `accepted` | decided. Binding on later work | Everything. This is the constraint others live inside |
 | `rejected` | considered and declined. **The record stays, permanently** | Nothing — but the next person to propose it gets the reasons for free |
 | `deprecated` | no longer applies, and nothing replaced it | Nothing |
-| `superseded` | replaced. On a **decision** the value carries the pointer — `superseded by ADR-NNNN` — and `superseded-by:` repeats it as a field | Follow the pointer |
+| `superseded` | replaced. On a **decision** the value carries the pointer itself — `superseded by ADR-NNNN`. On a living document it is bare, and `superseded-by:` carries the pointer | Follow the pointer |
 | `living` | current by definition; the git log is its history | Everything |
 | `complete` | issued. Describes a state at a date | It is evidence, not a commitment |
 
 > **`proposed` is not a soft `accepted`.** The moment it starts meaning *probably yes*, the folder stops being a record of decisions and becomes a folder of drafts. See [decisions §4](decisions.md).
+
+### Where the supersession pointer lives
+
+**One place per type — whichever the type's ladder can carry.** Writing it twice means two fields that can disagree, and nothing checks that they agree.
+
+| Type | The old document points forward via | Because |
+|---|---|---|
+| `decision` | its **`status`** — `superseded by ADR-NNNN` | the ladder's terminal state names the replacement, so a field would only repeat it |
+| `strategy` `product` `architecture` | **`superseded-by:`** | the status is a bare `superseded` with nowhere to put a name |
+| `research` `report` | **`superseded-by:`** | the ladder stops at `complete` and has no superseded state at all |
+| `process` `index` | — | living documents; they are edited until deleted, never superseded |
+
+**The reverse link is always `supersedes:` on the new document**, whatever the type. So both directions traverse in every case, with the pointer written once in each.
 
 ---
 
@@ -208,7 +223,7 @@ Never invent a status value. The vocabulary is fixed by type, because **the end 
 | `tags` | list, lowercase kebab | Terms a searcher would type. **A tag used once is noise** — if it will not reach a second document, it is a sentence in the body instead |
 | `aliases` | list, plain words | Other names the document is **actually called**, for search and wiki-links. Not invented synonyms: if nobody says it out loud, it is not an alias |
 | `supersedes` | ID or file name | Set on the **new** document. Names what it replaces |
-| `superseded-by` | ID or file name | Set on the **old** one. **The only field ever edited on an append-only document** |
+| `superseded-by` | ID or file name | Set on the **old** one, **only where its status cannot carry the pointer** — so never on a `decision`. On `research` and `report` it is the whole link, and **the only field ever edited on an append-only document** |
 | `decision-makers` | list of roles or names | Who actually decided. A record with none was not a decision, it was a suggestion |
 | `consulted` | list | Asked **before**. An empty list is honest — delete the key rather than listing someone who was not asked |
 | `informed` | list | Told **after** |
@@ -237,7 +252,7 @@ Never invent a status value. The vocabulary is fixed by type, because **the end 
 - [ ] Every `tag` will reach at least one other document.
 - [ ] Every `alias` is a name somebody actually says.
 - [ ] The record number or `report-id:` is **the next one**, and no earlier one was reused.
-- [ ] Superseding? The new document has `supersedes:`, the old one has `superseded-by:` **and** a changed status. Both directions, or the link is broken.
+- [ ] Superseding? The new document has `supersedes:`, and the old one points forward **once** — in its `status` if it is a `decision`, in `superseded-by:` otherwise. Both directions, or the link is broken. Never both on the same document.
 - [ ] Report? It also needs a **header block in the body** ([reports §3](reports.md)) — the file leaves the repository, and its reader may never see this YAML.
 
 ---

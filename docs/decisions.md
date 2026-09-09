@@ -1,7 +1,7 @@
 ---
 type: process
 status: living
-updated: 2026-07-29
+updated: 2026-09-09
 tags: [contribution, adr, decisions, madr, process]
 aliases: [architecture decision records, ADR conventions, decision records]
 ---
@@ -21,7 +21,7 @@ An **architecture decision record** (ADR) answers one question and nothing else:
 
 It exists because the reasoning behind a choice decays faster than the choice does. Six months later the constraint that forced the decision is invisible — the code, the schema, or the package layout looks arbitrary, and the next person either works around it or reverses it without knowing what it was defending. **An ADR is a message to whoever hits that constraint next.**
 
-It is deliberately *not* a unit of work, and not a ranked intention. Those are different questions with different lifecycles — see [Writing issues](../github/issues.md) §*Issue, ADR, or backlog row*.
+It is deliberately *not* a unit of work, and not a ranked intention. Those are different questions with different lifecycles — see [Writing issues](../github/issues.md) §*Issue, decision record, or backlog row*.
 
 | The question | Produces | Ends by |
 |---|---|---|
@@ -74,13 +74,14 @@ The legitimate hybrid: when a decision has been taken and files now have to move
 | **Considered Options** | the alternatives, stated fairly | An option list with one plausible entry is an advertisement. The rejected options are the record's main defence against being relitigated |
 | **Decision Outcome** | what was chosen, and why *this* one | The one section a hurried reader will read. It must be readable alone |
 | **Consequences** | good and bad, stated honestly | A record with no listed downside is not trusted, and rightly — every real choice costs something |
+| **Confirmation** *(optional)* | the observable that would show the choice was wrong | **A decision with no confirmation test cannot be revisited, only re-argued** — it can be disliked, but not disproved. Fold it into *More Information* where the revisit condition already carries it |
 
 Two rules about content, both about staying in lane:
 
 - **ADRs cite the strategy, product, and research documents; they do not restate them.** The documents explain; the ADRs commit. A restatement is a second copy that drifts, and then two documents disagree about what the project believes.
 - **Every material claim that came from evidence names its source.** A driver sourced from a benchmark or a standard is checkable; a driver sourced from nowhere is a preference wearing a citation's clothes.
 
-Frontmatter carries `type: decision`, `status`, `date` and `decision-makers`, plus `supersedes:` / `superseded-by:` where they apply — full list in [Frontmatter](frontmatter.md). The `date` is **the date the decision was made**, not the date the file was written — records written retroactively, at the point a project establishes its decision folder, should say when the thinking actually happened.
+Frontmatter carries `type: decision`, `status`, `date` and `decision-makers`, plus `supersedes:` on a record that replaces an earlier one — full list in [Frontmatter](frontmatter.md). **A superseded record points forward through its status line, not through a `superseded-by:` field**: the status already names the replacement, and writing it in both places gives two statements of one fact that nothing checks for agreement. The `date` is **the date the decision was made**, not the date the file was written — records written retroactively, at the point a project establishes its decision folder, should say when the thinking actually happened.
 
 ---
 
