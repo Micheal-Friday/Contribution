@@ -51,11 +51,13 @@ Omit the scope when a change spans the repository — a rule change that touches
 
 ## This project's exceptions
 
-**The guides carry a `version:` in their frontmatter, which [document-lifecycle](docs/document-lifecycle.md) says documents should not.**
+**None.**
 
-That rule exists because a version number on a living document is a lie about how it changes. Here the guides are **consumed by other repositories**, which may pin to a tag and need to know whether the text moved under them. That makes them closer to a shipped artifact than to an internal document.
+There was one, and it is recorded here rather than deleted because a reader who saw the old frontmatter needs to know it went deliberately.
 
-The honest reading: this is the one place where the document/artifact line genuinely blurs, and the exception is recorded rather than quietly taken. If it turns out nobody ever pins, the versions should go.
+The guides each carried a `version:`, which [document-lifecycle](docs/document-lifecycle.md) says documents should not — justified on the grounds that they are consumed by other repositories, which makes them closer to a shipped artifact than to an internal document.
+
+It was retired in `docs: refs #1 version the set, not the files`. Nine files carried a version, four saying `1.0` and five saying `2.0`; nothing consumed either. **A tag names a commit, so one version covers the whole set** — which is what an adopting project pins to anyway.
 
 ---
 

@@ -8,6 +8,14 @@ aliases: [document lifecycle, naming conventions, frontmatter, versioning]
 
 # The document lifecycle
 
+> **At a glance**
+> **Names** lowercase ASCII `kebab-case`. Numbered series `NNNN-kebab-title.md`. Archive `YYYY-MM-DD-name.md`. Dates ISO-8601 everywhere.
+> **Frontmatter** → [frontmatter](frontmatter.md) has the field-by-field lookup.
+> **Template** [`templates/document.md`](../templates/document.md) for living documents.
+> **Rule** **Only shipped artifacts get a version number.** Documents get status and supersession.
+
+---
+
 A document in a docs-as-code repository has four things a reader has to be able to trust: a **name** that stays valid, a declared **type**, a **status** that says how much weight to put on it, and an **end** — the state in which it stops being current. This file governs all four.
 
 The rules exist because documents outlive the person who wrote them, and because a document whose status is ambiguous is worse than no document: it gets cited as settled by someone who was not there.
@@ -35,7 +43,11 @@ The rules exist because documents outlive the person who wrote them, and because
 
 ## 2. Frontmatter
 
-**Every document carries YAML frontmatter with at least `type`, `status`, and `updated`.** Those three answer the only questions a reader has before deciding whether to keep reading: what kind of thing is this, how settled is it, and how stale is it.
+> **Field-by-field lookup: [Frontmatter](frontmatter.md).** This section is the rule behind it.
+
+**Every document carries YAML frontmatter with at least `type`, `status`, and a date field.** Those three answer the only questions a reader has before deciding whether to keep reading: what kind of thing is this, how settled is it, and how stale is it.
+
+**The date field is named for what the date means** — `updated:` on a living document, `date:` on a decision or a report, `researched:` on a research pass. One field name serving three different questions was the source of most frontmatter mistakes. It matters most on the append-only types: they are never updated, so a field promising *last updated* on one invites exactly the edit §4 forbids.
 
 ### The current set
 
