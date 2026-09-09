@@ -84,7 +84,8 @@ aliases: [reports registry]
 ```yaml
 ---
 type: decision
-status: proposed        # proposed | accepted | rejected | deprecated | superseded
+status: proposed        # proposed | accepted | rejected | deprecated |
+                        # superseded by ADR-NNNN
 date: 2026-09-09        # WHEN THE DECISION WAS MADE, not when the file was written
 decision-makers: [role or name]
 consulted: []           # asked before — delete the key rather than faking one
@@ -162,7 +163,7 @@ Never invent a status value. The vocabulary is fixed by type, because **the end 
 |---|---|---|
 | `strategy` `product` `architecture` | `draft` → `accepted` → `superseded` | being superseded |
 | `process` `index` | `living` | never — edited until deleted |
-| `decision` | `proposed` → `accepted` \| `rejected` → `deprecated` \| `superseded` | being superseded; never edited, never deleted |
+| `decision` | `proposed` → `accepted` \| `rejected` → `deprecated` \| `superseded by ADR-NNNN` | being superseded; never edited, never deleted |
 | `research` `report` | `complete` | never — append-only. A correction is a new document |
 
 | Value | Means | What may be built on it |
@@ -172,7 +173,7 @@ Never invent a status value. The vocabulary is fixed by type, because **the end 
 | `accepted` | decided. Binding on later work | Everything. This is the constraint others live inside |
 | `rejected` | considered and declined. **The record stays, permanently** | Nothing — but the next person to propose it gets the reasons for free |
 | `deprecated` | no longer applies, and nothing replaced it | Nothing |
-| `superseded` | replaced. `superseded-by:` names by what | Follow the pointer |
+| `superseded` | replaced. On a **decision** the value carries the pointer — `superseded by ADR-NNNN` — and `superseded-by:` repeats it as a field | Follow the pointer |
 | `living` | current by definition; the git log is its history | Everything |
 | `complete` | issued. Describes a state at a date | It is evidence, not a commitment |
 
